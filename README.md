@@ -1,2 +1,2 @@
 # GorillaRoulette
-Monke now has 1/10 chance to die
+Monke now has a 1 in 10 chance of closing the simulation
