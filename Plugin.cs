@@ -15,7 +15,7 @@ namespace GorillaRoulette
         {
             HarmonyPatches.ApplyHarmonyPatches();
             Utilla.Events.GameInitialized += OnGameInitialized;
-            HoneyLib.Events.Events.InfectionTagEvent += HoneyLib.Events.Events.InfectionTagEvent;
+            HoneyLib.Events.Events.InfectionTagEvent += InfectionTagEvent;
         }
 
         void OnDisable()
