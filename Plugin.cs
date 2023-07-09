@@ -7,26 +7,21 @@ using UnityEngine;
 
 namespace GorillaRoulette
 {
-    [BepInDependency("org.legoandmars.gorillatag.utilla", "1.5.0")]
+    [BepInDependency("com.buzzbzzzbzzbzzzthe18th.gorillatag.HoneyLib", "1.0.0")]
     [BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
     public class Plugin : BaseUnityPlugin
     {
         void OnEnable()
         {
             HarmonyPatches.ApplyHarmonyPatches();
-            Utilla.Events.GameInitialized += OnGameInitialized;
             HoneyLib.Events.Events.InfectionTagEvent += InfectionTagEvent;
         }
 
         void OnDisable()
         {
             HarmonyPatches.RemoveHarmonyPatches();
-            Utilla.Events.GameInitialized -= OnGameInitialized;
         }
 
-        void OnGameInitialized(object sender, EventArgs e)
-        {
-        }
         void InfectionTagEvent(object sender, HoneyLib.Events.InfectionTagEventArgs e)
         {
             if (e.taggedPlayer.IsLocal)
@@ -37,11 +32,6 @@ namespace GorillaRoulette
                 {
                     // Event that should happen with 1 in 10 chance
                     Application.Quit();
-                }
-                else
-                {
-                    // Event that should happen in the other 9 cases
-                    Console.WriteLine("Survived.");
                 }
             }
         }

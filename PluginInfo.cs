@@ -7,6 +7,6 @@
     {
         public const string GUID = "com.brokenstone.gorillatag.gorillaroulette";
         public const string Name = "GorillaRoulette";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
     }
 }
