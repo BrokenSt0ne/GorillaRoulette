@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using HoneyLib;
 using Photon.Pun;
 using System;
@@ -16,12 +17,23 @@ namespace GorillaRoulette
             HoneyLib.Events.Events.InfectionTagEvent += InfectionTagEvent;
         }
 
+        private ConfigEntry<int> Odds;
+        private int _Odds;
+
+        void Awake()
+        {
+            Odds = Config.Bind("General",
+                                         "Odds Chance",
+                                         7,
+                                         "Changes the odds of quitting the game, e.g 1/10 = 11");
+            _Odds = Odds.Value;
+        }
         void InfectionTagEvent(object sender, HoneyLib.Events.InfectionTagEventArgs e)
         {
             if (e.taggedPlayer.IsLocal)
             {
                 System.Random random = new System.Random();
-                int randomNumber = random.Next(1, 7);
+                int randomNumber = random.Next(1, _Odds);
                 if (randomNumber == 1)
                 {
                     // Event that *should* happen with 1 in 6 chance
