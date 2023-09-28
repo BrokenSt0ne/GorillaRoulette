@@ -1,6 +1,8 @@
 # GorillaRoulette
 Monke now has a 1 in ~~10~~ 6 chance of closing the simulation upon being tagged
 
+ty chin for making the whole chance changing system lmao
+
 ## Note
 Requires [HoneyLib](https://github.com/BzzzThe18th/HoneyLib/releases/latest) by [BzzzThe18th](https://github.com/BzzzThe18th)
 
